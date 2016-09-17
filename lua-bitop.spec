@@ -5,23 +5,21 @@
 %define	__lua	/usr/bin/lua5.1
 %define luaver 5.1
 %define lualibdir %{_libdir}/lua/%{luaver}
-Summary:	Bitwise operations for Lua
+Summary:	C extension module for Lua which adds bitwise operations on numbers
 Name:		lua-bitop
-Version:	1.0.1
-Release:	0.1
+Version:	1.0.2
+Release:	1
 License:	MIT
 Group:		Development/Libraries
 Source0:	http://bitop.luajit.org/download/LuaBitOp-%{version}.tar.gz
-# Source0-md5:	39984456940aea838e0f500bececbd73
+# Source0-md5:	d0c1080fe0c844e8477279668e2d0d06
 URL:		http://bitop.luajit.org/
 BuildRequires:	lua >= %{luaver}
 BuildRequires:	lua-devel >= %{luaver}
-Requires:	lua >= %{luaver}
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Lua BitOp is a C extension module for Lua 5.1 which adds bitwise
+Lua BitOp is a C extension module for Lua 5.1/5.2 which adds bitwise
 operations on numbers.
 
 Supported functions: bit.tobit, bit.tohex, bit.bnot, bit.band,
@@ -35,6 +33,7 @@ bit.ror, bit.bswap
 %{__make} all %{?with_tests:test} \
 	INCLUDES=$(pkg-config --cflags lua%{luaver}) \
 	LUA="%{__lua}" \
+	CCOPT="%{rpmcflags} -fomit-frame-pointer" \
 	CC="%{__cc}"
 
 %install
