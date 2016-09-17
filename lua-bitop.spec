@@ -14,8 +14,9 @@ Group:		Development/Libraries
 Source0:	http://bitop.luajit.org/download/LuaBitOp-%{version}.tar.gz
 # Source0-md5:	d0c1080fe0c844e8477279668e2d0d06
 URL:		http://bitop.luajit.org/
-BuildRequires:	lua >= %{luaver}
-BuildRequires:	lua-devel >= %{luaver}
+BuildRequires:	lua51 >= %{luaver}
+BuildRequires:	lua51-devel >= %{luaver}
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
