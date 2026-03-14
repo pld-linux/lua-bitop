@@ -7,13 +7,13 @@
 %define lualibdir %{_libdir}/lua/%{luaver}
 Summary:	C extension module for Lua which adds bitwise operations on numbers
 Name:		lua-bitop
-Version:	1.0.2
+Version:	1.0.3
 Release:	1
 License:	MIT
 Group:		Development/Libraries
-Source0:	http://bitop.luajit.org/download/LuaBitOp-%{version}.tar.gz
-# Source0-md5:	d0c1080fe0c844e8477279668e2d0d06
-URL:		http://bitop.luajit.org/
+Source0:	https://bitop.luajit.org/download/LuaBitOp-%{version}.tar.gz
+# Source0-md5:	9e399bfada2cee5a1ad8872e6bfbb83c
+URL:		https://bitop.luajit.org/
 BuildRequires:	lua51 >= %{luaver}
 BuildRequires:	lua51-devel >= %{luaver}
 BuildRequires:	pkgconfig
